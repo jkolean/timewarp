@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/style.css'}">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>jQuery MenuTree Plugin : Demo</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<div class="container">
+<script type="text/javascript" charset="utf-8">$('.container').hide();</script>
+<h1>jQuery MenuTree Plugin Demo (using tracer plugin)</h1>
+<div id="left">
+<ul id="list1">
+<li><a href="#">Menu - toggle animation</a>
+<ul>
+<li><a href="#">Top Parent - Tier 1</a>
+<ul>
+<li><a href="#">Child - Tier 2</a>
+<ul>
+<li><a href="http://pixelhandler.com">Pixelhandler</a> - Tier 3</li>
+<li><a href="http://jquery.com">jQuery</a> - Tier 3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#">Lower Parent - Tier 1</a>
+<ul>
+<li><a href="#">Child - Tier 2</a>
+<ul>
+<li><a href="#">Grandchild - Tier 3 - One</a></li>
+<li><a href="#">Grandchild - Tier 3 - Two</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<hr />
+
+<dl id="definitions">
+<dt><a href="#">Definition list - Term 1</a></dt>
+<dd>Description not targeted,
+<em>uses CSS classes to collapse/expanded view</em>
+</dd>
+<dt><a href="#def">Term 2</a></dt>
+<dd>Description 2 with links listed<br />
+<ol>
+<li><a href="http://pixelhandler.com">Pixelhandler</a></li>
+<li><a href="http://jquery.com">jQuery</a></li>
+</ol>
+</dd>
+<dt><a href="#def">Term 3</a></dt>
+<dd>Description 3</dd>
+<dt><a href="#def">Term 4</a></dt>
+<dd>Description 4 with unordered list<br />
+<ul>
+<li>One</li>
+<li>Two</li>
+</ul>
+</dd>
+</dl>
+</div>
+
+<div id="mid">
+<p><strong>This section uses the trace output -></strong></p>
+<hr />
+<ul id="list2">
+<li><a href="/">Menu - slideToggle</a>
+<ul>
+<li><a href="/">Top Parent - <strong>Tier 1</strong></a>
+<ul>
+<li><a href="/">Child - Tier 2 - One</a>
+<ul>
+<li><a href="http://pixelhandler.com">Pixelhandler</a> - Tier 3</li>
+<li><a href="http://jquery.com">jQuery</a> - Tier 3</li>
+</ul>
+</li>
+<li><a href="/">Child - Tier 2 - Two</a>
+<ul>
+<li><a href="http://github.com/jquery/jquery/">github-jQuery</a> - Tier 3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/">Lower Parent - <u>Tier 1</u></a>
+<ul>
+<li><a href="/">Child - Tier 2 - One</a>
+<ul>
+<li>Grandchild - Tier 3 - One</li>
+<li>Grandchild - Tier 3 - Two</li>
+</ul>
+</li>
+<li><a href="/">Child - Tier 2 - Two</a>
+<ul>
+<li>Grandchild - Tier 3 - One</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<div id="list3">
+<a href="#">Super slow animiation</a>
+<ol>
+<li><a href="#">Top Parent - Tier 1</a>
+<ol>
+<li><a href="#">Child - Tier 2</a>
+<ol>
+<li><a href="http://pixelhandler.com">Pixelhandler</a> - Tier 3</li>
+<li><a href="http://jquery.com">jQuery</a> - Tier 3</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#">Lower Parent - Tier 1</a>
+<ol>
+<li><a href="#">Child - Tier 2</a>
+<ol>
+<li><a href="#">Grandchild - Tier 3 - One</a></li>
+<li><a href="#">Grandchild - Tier 3 - Two</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="right">
+<p>
+<strong>Trace list:</strong> | <a id="empty" name="empty">[ empty ]</a>
+</p>
+<ol id="trace">
+<li><em>Watch here for output</em></li>
+</ol>
+<a href="#test">[ test ]</a>
+</div>
+
+<br class="clear" />
+<div id="footer"><a href="http://plugins.jquery.com/project/menuTree">Plugin home on jQuery site</a> | <a href="http://github.com/pixelhandler/jQuery-MenuTree-Plugin">Source Code</a> | &copy; 2010, Bill Heaton. Dual licensed under the <a href="http://docs.jquery.com/License">MIT or GPL Version 2 licenses.</a> </div>
+</div>
+<script src="../jquery.plugin.tracer.js" type="text/javascript" charset="utf-8"></script>
+<script src="../jquery.plugin.menuTree.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+
+setTimeout(function() { $('.container').fadeIn(250) }, 250);
+$(document).ready(function() {
+
+/* setup jQuery tracer plugin */
+$('#trace').tracer();
+
+// setup jQuery menuTree plugin
+$('#list1').menuTree({
+animation: true,
+handler: 'toggle',
+anchor: 'a[href="#"]',
+speed: 'slow',
+trace: false
+});
+//
+$('#definitions').menuTree({
+listElement: 'dd',
+anchor: 'a[href^="#def"]',
+trace: false
+});
+//
+$('#list2').menuTree({
+animation: true,
+handler: 'slideToggle',
+anchor: 'a[href="/"]',
+trace: true
+});
+//
+$('#list3').menuTree({
+animation: true,
+listElement: 'ol',
+handler: 'toggle',
+anchor: 'a[href="#"]',
+speed: 2000,
+trace: true
+});
+//
+$('#empty').dblclick(function(){
+alert('empty dblclick');
+});
+//
+
+});
+//]]>
+</script>
+
+</body>
+</html>

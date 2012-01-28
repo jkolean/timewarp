@@ -1,0 +1,152 @@
+/* style.css */
+
+/* Reset: based on http://meyerweb.com/eric/tools/css/reset/ v1.0 | 20080212 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+body {
+font: .75em/1.4em "Trebuchet MS", "MS Trebuchet", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+margin: 2em 0;
+background-color: #181C21;
+color: #fff;
+}
+div {
+color: #333;
+}
+ol, ul, dl {
+list-style: none;
+margin: 0 .5em;
+}
+li {
+padding: 0 .5em;
+}
+dt, dd {
+padding: 0 0 .5em 0;
+}
+
+dt {
+font-weight: bold;
+font-size: 1.2em;
+}
+h1 {
+color: #fff;
+font-size: 1.6em;
+line-height: 1.5em;
+font-weight: normal;
+}
+a, a:link {
+color: #0F67A1;
+}
+a:hover {
+text-decoration: underline;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+text-decoration: none;
+}
+del {
+text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+hr {
+margin: 1em;
+color: #efefef;
+}
+
+/* Layout */
+.container {
+width: 960px;
+margin: 0 auto;
+}
+.container div {
+text-align: left;
+padding: 10px;
+}
+#left, #mid, #right {
+width: 276px;
+height: 470px;
+border: 2px solid #999;
+margin: 6px;
+}
+#left, #mid {
+float: left;
+background-color: #EAF2F5;
+}
+#right p {
+margin: 0 0 1em 0;
+}
+#right {
+float: right;
+background-color: #F0F0AA;
+}
+#footer {
+color: #999;
+}
+.clear {
+clear: left;
+}
+/* styles for menuTree plugin */
+.menuTree {
+text-decoration: none;
+}
+#list2 .menuTree:before {
+content: "[+] ";
+}
+#list2 .expanded:before {
+content: "[-] ";
+}
+.collapsed {
+display: none;
+}
+#trace {
+margin:0;
+overflow: auto;
+height: 440px;
+}
+#trace li {
+color: #333;
+font-size: 9px;
+line-height:1.3em;
+margin:0;
+padding:0 0 0 .5em;
+}
+#empty {
+color: #C00;
+text-decoration: underline;
+}
+a[href='#test'] {
+display: none;
+}
